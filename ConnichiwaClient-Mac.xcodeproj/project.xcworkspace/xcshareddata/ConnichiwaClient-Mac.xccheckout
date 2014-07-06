@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CCD31C47-FD9F-41F0-A3F3-83BC41DC2DE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ConnichiwaClient-Mac</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3C480C41-03DD-4DF8-8318-36119DA0C02E</key>
+		<string>ssh://github.com/BlackWolf/ConnichiwaClient-Mac.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ConnichiwaClient-Mac/ConnichiwaClient-Mac.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3C480C41-03DD-4DF8-8318-36119DA0C02E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/BlackWolf/ConnichiwaClient-Mac.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3C480C41-03DD-4DF8-8318-36119DA0C02E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3C480C41-03DD-4DF8-8318-36119DA0C02E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ConnichiwaClient-Mac</string>
+		</dict>
+	</array>
+</dict>
+</plist>

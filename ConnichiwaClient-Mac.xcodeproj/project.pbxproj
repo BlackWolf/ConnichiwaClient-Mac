@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		335669F91969553B00AEE02D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335669F81969553B00AEE02D /* Cocoa.framework */; };
+		33566A031969553B00AEE02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33566A011969553B00AEE02D /* InfoPlist.strings */; };
+		33566A051969553B00AEE02D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33566A041969553B00AEE02D /* main.m */; };
+		33566A091969553B00AEE02D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 33566A071969553B00AEE02D /* Credits.rtf */; };
+		33566A0C1969553B00AEE02D /* CCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33566A0B1969553B00AEE02D /* CCAppDelegate.m */; };
+		33566A0F1969553B00AEE02D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33566A0D1969553B00AEE02D /* MainMenu.xib */; };
+		33566A111969553B00AEE02D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33566A101969553B00AEE02D /* Images.xcassets */; };
+		33566A181969553B00AEE02D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33566A171969553B00AEE02D /* XCTest.framework */; };
+		33566A191969553B00AEE02D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335669F81969553B00AEE02D /* Cocoa.framework */; };
+		33566A211969553B00AEE02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33566A1F1969553B00AEE02D /* InfoPlist.strings */; };
+		33566A231969553B00AEE02D /* ConnichiwaClient_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33566A221969553B00AEE02D /* ConnichiwaClient_MacTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33566A1A1969553B00AEE02D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 335669ED1969553B00AEE02D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 335669F41969553B00AEE02D;
+			remoteInfo = "ConnichiwaClient-Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		335669F51969553B00AEE02D /* ConnichiwaClient-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ConnichiwaClient-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		335669F81969553B00AEE02D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		335669FB1969553B00AEE02D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		335669FC1969553B00AEE02D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		335669FD1969553B00AEE02D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		33566A001969553B00AEE02D /* ConnichiwaClient-Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnichiwaClient-Mac-Info.plist"; sourceTree = "<group>"; };
+		33566A021969553B00AEE02D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33566A041969553B00AEE02D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33566A061969553B00AEE02D /* ConnichiwaClient-Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnichiwaClient-Mac-Prefix.pch"; sourceTree = "<group>"; };
+		33566A081969553B00AEE02D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		33566A0A1969553B00AEE02D /* CCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAppDelegate.h; sourceTree = "<group>"; };
+		33566A0B1969553B00AEE02D /* CCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAppDelegate.m; sourceTree = "<group>"; };
+		33566A0E1969553B00AEE02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		33566A101969553B00AEE02D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		33566A161969553B00AEE02D /* ConnichiwaClient-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ConnichiwaClient-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33566A171969553B00AEE02D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		33566A1E1969553B00AEE02D /* ConnichiwaClient-MacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnichiwaClient-MacTests-Info.plist"; sourceTree = "<group>"; };
+		33566A201969553B00AEE02D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33566A221969553B00AEE02D /* ConnichiwaClient_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnichiwaClient_MacTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		335669F21969553B00AEE02D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				335669F91969553B00AEE02D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33566A131969553B00AEE02D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33566A191969553B00AEE02D /* Cocoa.framework in Frameworks */,
+				33566A181969553B00AEE02D /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		335669EC1969553B00AEE02D = {
+			isa = PBXGroup;
+			children = (
+				335669FE1969553B00AEE02D /* ConnichiwaClient-Mac */,
+				33566A1C1969553B00AEE02D /* ConnichiwaClient-MacTests */,
+				335669F71969553B00AEE02D /* Frameworks */,
+				335669F61969553B00AEE02D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		335669F61969553B00AEE02D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				335669F51969553B00AEE02D /* ConnichiwaClient-Mac.app */,
+				33566A161969553B00AEE02D /* ConnichiwaClient-MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		335669F71969553B00AEE02D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				335669F81969553B00AEE02D /* Cocoa.framework */,
+				33566A171969553B00AEE02D /* XCTest.framework */,
+				335669FA1969553B00AEE02D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		335669FA1969553B00AEE02D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				335669FB1969553B00AEE02D /* AppKit.framework */,
+				335669FC1969553B00AEE02D /* CoreData.framework */,
+				335669FD1969553B00AEE02D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		335669FE1969553B00AEE02D /* ConnichiwaClient-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				33566A0A1969553B00AEE02D /* CCAppDelegate.h */,
+				33566A0B1969553B00AEE02D /* CCAppDelegate.m */,
+				33566A0D1969553B00AEE02D /* MainMenu.xib */,
+				33566A101969553B00AEE02D /* Images.xcassets */,
+				335669FF1969553B00AEE02D /* Supporting Files */,
+			);
+			path = "ConnichiwaClient-Mac";
+			sourceTree = "<group>";
+		};
+		335669FF1969553B00AEE02D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33566A001969553B00AEE02D /* ConnichiwaClient-Mac-Info.plist */,
+				33566A011969553B00AEE02D /* InfoPlist.strings */,
+				33566A041969553B00AEE02D /* main.m */,
+				33566A061969553B00AEE02D /* ConnichiwaClient-Mac-Prefix.pch */,
+				33566A071969553B00AEE02D /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33566A1C1969553B00AEE02D /* ConnichiwaClient-MacTests */ = {
+			isa = PBXGroup;
+			children = (
+				33566A221969553B00AEE02D /* ConnichiwaClient_MacTests.m */,
+				33566A1D1969553B00AEE02D /* Supporting Files */,
+			);
+			path = "ConnichiwaClient-MacTests";
+			sourceTree = "<group>";
+		};
+		33566A1D1969553B00AEE02D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33566A1E1969553B00AEE02D /* ConnichiwaClient-MacTests-Info.plist */,
+				33566A1F1969553B00AEE02D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		335669F41969553B00AEE02D /* ConnichiwaClient-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33566A261969553B00AEE02D /* Build configuration list for PBXNativeTarget "ConnichiwaClient-Mac" */;
+			buildPhases = (
+				335669F11969553B00AEE02D /* Sources */,
+				335669F21969553B00AEE02D /* Frameworks */,
+				335669F31969553B00AEE02D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ConnichiwaClient-Mac";
+			productName = "ConnichiwaClient-Mac";
+			productReference = 335669F51969553B00AEE02D /* ConnichiwaClient-Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33566A151969553B00AEE02D /* ConnichiwaClient-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33566A291969553B00AEE02D /* Build configuration list for PBXNativeTarget "ConnichiwaClient-MacTests" */;
+			buildPhases = (
+				33566A121969553B00AEE02D /* Sources */,
+				33566A131969553B00AEE02D /* Frameworks */,
+				33566A141969553B00AEE02D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33566A1B1969553B00AEE02D /* PBXTargetDependency */,
+			);
+			name = "ConnichiwaClient-MacTests";
+			productName = "ConnichiwaClient-MacTests";
+			productReference = 33566A161969553B00AEE02D /* ConnichiwaClient-MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		335669ED1969553B00AEE02D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Mario Schreiner";
+				TargetAttributes = {
+					33566A151969553B00AEE02D = {
+						TestTargetID = 335669F41969553B00AEE02D;
+					};
+				};
+			};
+			buildConfigurationList = 335669F01969553B00AEE02D /* Build configuration list for PBXProject "ConnichiwaClient-Mac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 335669EC1969553B00AEE02D;
+			productRefGroup = 335669F61969553B00AEE02D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				335669F41969553B00AEE02D /* ConnichiwaClient-Mac */,
+				33566A151969553B00AEE02D /* ConnichiwaClient-MacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		335669F31969553B00AEE02D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33566A031969553B00AEE02D /* InfoPlist.strings in Resources */,
+				33566A111969553B00AEE02D /* Images.xcassets in Resources */,
+				33566A091969553B00AEE02D /* Credits.rtf in Resources */,
+				33566A0F1969553B00AEE02D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33566A141969553B00AEE02D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33566A211969553B00AEE02D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		335669F11969553B00AEE02D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33566A0C1969553B00AEE02D /* CCAppDelegate.m in Sources */,
+				33566A051969553B00AEE02D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33566A121969553B00AEE02D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33566A231969553B00AEE02D /* ConnichiwaClient_MacTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33566A1B1969553B00AEE02D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 335669F41969553B00AEE02D /* ConnichiwaClient-Mac */;
+			targetProxy = 33566A1A1969553B00AEE02D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33566A011969553B00AEE02D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33566A021969553B00AEE02D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		33566A071969553B00AEE02D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33566A081969553B00AEE02D /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		33566A0D1969553B00AEE02D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33566A0E1969553B00AEE02D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		33566A1F1969553B00AEE02D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33566A201969553B00AEE02D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33566A241969553B00AEE02D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		33566A251969553B00AEE02D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		33566A271969553B00AEE02D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Prefix.pch";
+				INFOPLIST_FILE = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		33566A281969553B00AEE02D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Prefix.pch";
+				INFOPLIST_FILE = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		33566A2A1969553B00AEE02D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ConnichiwaClient-Mac.app/Contents/MacOS/ConnichiwaClient-Mac";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ConnichiwaClient-MacTests/ConnichiwaClient-MacTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		33566A2B1969553B00AEE02D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ConnichiwaClient-Mac.app/Contents/MacOS/ConnichiwaClient-Mac";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Prefix.pch";
+				INFOPLIST_FILE = "ConnichiwaClient-MacTests/ConnichiwaClient-MacTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		335669F01969553B00AEE02D /* Build configuration list for PBXProject "ConnichiwaClient-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33566A241969553B00AEE02D /* Debug */,
+				33566A251969553B00AEE02D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33566A261969553B00AEE02D /* Build configuration list for PBXNativeTarget "ConnichiwaClient-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33566A271969553B00AEE02D /* Debug */,
+				33566A281969553B00AEE02D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		33566A291969553B00AEE02D /* Build configuration list for PBXNativeTarget "ConnichiwaClient-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33566A2A1969553B00AEE02D /* Debug */,
+				33566A2B1969553B00AEE02D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 335669ED1969553B00AEE02D /* Project object */;
+}
