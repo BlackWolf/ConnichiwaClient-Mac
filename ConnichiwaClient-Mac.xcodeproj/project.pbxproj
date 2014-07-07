@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3336C015196957EA00EFAC5F /* CCBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3336C014196957EA00EFAC5F /* CCBluetoothManager.m */; };
+		3336C0171969582F00EFAC5F /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3336C0161969582F00EFAC5F /* IOBluetooth.framework */; };
+		3336C01A19695A1200EFAC5F /* CCDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 3336C01919695A1200EFAC5F /* CCDebug.m */; };
+		3336C01D19695CBA00EFAC5F /* CCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3336C01C19695CBA00EFAC5F /* CCUtil.m */; };
+		3336C02219695FD400EFAC5F /* CCRemoteLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3336C02119695FD400EFAC5F /* CCRemoteLibraryManager.m */; };
+		3336C025196963E500EFAC5F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3336C024196963E500EFAC5F /* JavaScriptCore.framework */; };
+		3336C0271969678100EFAC5F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3336C0261969678100EFAC5F /* WebKit.framework */; };
 		335669F91969553B00AEE02D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335669F81969553B00AEE02D /* Cocoa.framework */; };
 		33566A031969553B00AEE02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33566A011969553B00AEE02D /* InfoPlist.strings */; };
 		33566A051969553B00AEE02D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33566A041969553B00AEE02D /* main.m */; };
@@ -31,6 +38,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3336C013196957E900EFAC5F /* CCBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBluetoothManager.h; sourceTree = "<group>"; };
+		3336C014196957EA00EFAC5F /* CCBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBluetoothManager.m; sourceTree = "<group>"; };
+		3336C0161969582F00EFAC5F /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		3336C01819695A1200EFAC5F /* CCDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDebug.h; sourceTree = "<group>"; };
+		3336C01919695A1200EFAC5F /* CCDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDebug.m; sourceTree = "<group>"; };
+		3336C01B19695CBA00EFAC5F /* CCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUtil.h; sourceTree = "<group>"; };
+		3336C01C19695CBA00EFAC5F /* CCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUtil.m; sourceTree = "<group>"; };
+		3336C01E19695D2A00EFAC5F /* CCAppState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAppState.h; sourceTree = "<group>"; };
+		3336C01F19695F5800EFAC5F /* CCBluetoothManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBluetoothManagerDelegate.h; sourceTree = "<group>"; };
+		3336C02019695FD400EFAC5F /* CCRemoteLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteLibraryManager.h; sourceTree = "<group>"; };
+		3336C02119695FD400EFAC5F /* CCRemoteLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemoteLibraryManager.m; sourceTree = "<group>"; };
+		3336C02319695FDF00EFAC5F /* CCRemoteLibManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRemoteLibManagerDelegate.h; sourceTree = "<group>"; };
+		3336C024196963E500EFAC5F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		3336C0261969678100EFAC5F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		335669F51969553B00AEE02D /* ConnichiwaClient-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ConnichiwaClient-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		335669F81969553B00AEE02D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		335669FB1969553B00AEE02D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -57,6 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3336C0271969678100EFAC5F /* WebKit.framework in Frameworks */,
+				3336C025196963E500EFAC5F /* JavaScriptCore.framework in Frameworks */,
+				3336C0171969582F00EFAC5F /* IOBluetooth.framework in Frameworks */,
 				335669F91969553B00AEE02D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +119,9 @@
 		335669F71969553B00AEE02D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3336C0261969678100EFAC5F /* WebKit.framework */,
+				3336C024196963E500EFAC5F /* JavaScriptCore.framework */,
+				3336C0161969582F00EFAC5F /* IOBluetooth.framework */,
 				335669F81969553B00AEE02D /* Cocoa.framework */,
 				33566A171969553B00AEE02D /* XCTest.framework */,
 				335669FA1969553B00AEE02D /* Other Frameworks */,
@@ -117,6 +144,17 @@
 			children = (
 				33566A0A1969553B00AEE02D /* CCAppDelegate.h */,
 				33566A0B1969553B00AEE02D /* CCAppDelegate.m */,
+				3336C01E19695D2A00EFAC5F /* CCAppState.h */,
+				3336C013196957E900EFAC5F /* CCBluetoothManager.h */,
+				3336C014196957EA00EFAC5F /* CCBluetoothManager.m */,
+				3336C01F19695F5800EFAC5F /* CCBluetoothManagerDelegate.h */,
+				3336C02019695FD400EFAC5F /* CCRemoteLibraryManager.h */,
+				3336C02119695FD400EFAC5F /* CCRemoteLibraryManager.m */,
+				3336C02319695FDF00EFAC5F /* CCRemoteLibManagerDelegate.h */,
+				3336C01819695A1200EFAC5F /* CCDebug.h */,
+				3336C01919695A1200EFAC5F /* CCDebug.m */,
+				3336C01B19695CBA00EFAC5F /* CCUtil.h */,
+				3336C01C19695CBA00EFAC5F /* CCUtil.m */,
 				33566A0D1969553B00AEE02D /* MainMenu.xib */,
 				33566A101969553B00AEE02D /* Images.xcassets */,
 				335669FF1969553B00AEE02D /* Supporting Files */,
@@ -253,6 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3336C01D19695CBA00EFAC5F /* CCUtil.m in Sources */,
+				3336C02219695FD400EFAC5F /* CCRemoteLibraryManager.m in Sources */,
+				3336C015196957EA00EFAC5F /* CCBluetoothManager.m in Sources */,
+				3336C01A19695A1200EFAC5F /* CCDebug.m in Sources */,
 				33566A0C1969553B00AEE02D /* CCAppDelegate.m in Sources */,
 				33566A051969553B00AEE02D /* main.m in Sources */,
 			);
@@ -389,6 +431,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"CWDEBUG=1",
+				);
 				INFOPLIST_FILE = "ConnichiwaClient-Mac/ConnichiwaClient-Mac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -467,6 +514,7 @@
 				33566A281969553B00AEE02D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33566A291969553B00AEE02D /* Build configuration list for PBXNativeTarget "ConnichiwaClient-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +523,7 @@
 				33566A2B1969553B00AEE02D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
