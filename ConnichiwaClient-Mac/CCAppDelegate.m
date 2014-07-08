@@ -12,6 +12,7 @@
 #import "CCBluetoothManagerDelegate.h"
 #import "CCRemoteLibraryManager.h"
 #import "CCRemoteLibManagerDelegate.h"
+#import "CCDebug.h"
 
 
 @interface CCAppDelegate () <CCAppState, CCBluetoothManagerDelegate, CCRemoteLibraryManagerDelegate, NSWindowDelegate>
@@ -23,6 +24,7 @@
 @property (readwrite, strong) NSString *deviceName;
 @property (readwrite, strong) CCBluetoothManager *bluetoothManager;
 @property (readwrite, strong) CCRemoteLibraryManager *remoteLibManager;
+@property (readwrite, strong) NSTimer *theTimer;
 
 @end
 
@@ -32,10 +34,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-//    [self.window setDelegate:self];
-//    [self.window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
-//    [self.window toggleFullScreen:nil];
-//    [self.window setCollectionBehavior:0];
+    [self.window setDelegate:self];
+    [self.window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+    [self.window toggleFullScreen:nil];
+    [self.window setCollectionBehavior:0];
     
     self.identifier = [[NSUUID UUID] UUIDString];
     self.deviceName = (__bridge NSString *)SCDynamicStoreCopyComputerName(NULL, NULL);
@@ -47,7 +49,6 @@
     [self.bluetoothManager setDelegate:self];
     [self.bluetoothManager startAdvertising];
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {

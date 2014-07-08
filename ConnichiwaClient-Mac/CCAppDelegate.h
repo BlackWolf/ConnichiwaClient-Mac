@@ -15,7 +15,4 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet WebView *webView;
 
-+ (NSString *)identifier;
-+ (NSString *)computerName;
-
 @end

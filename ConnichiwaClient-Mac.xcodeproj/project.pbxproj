@@ -25,6 +25,7 @@
 		33566A191969553B00AEE02D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335669F81969553B00AEE02D /* Cocoa.framework */; };
 		33566A211969553B00AEE02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33566A1F1969553B00AEE02D /* InfoPlist.strings */; };
 		33566A231969553B00AEE02D /* ConnichiwaClient_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33566A221969553B00AEE02D /* ConnichiwaClient_MacTests.m */; };
+		339B192F196BE702000C26A7 /* CCBluetoothTransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 339B192E196BE702000C26A7 /* CCBluetoothTransferManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,9 @@
 		33566A1E1969553B00AEE02D /* ConnichiwaClient-MacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnichiwaClient-MacTests-Info.plist"; sourceTree = "<group>"; };
 		33566A201969553B00AEE02D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		33566A221969553B00AEE02D /* ConnichiwaClient_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnichiwaClient_MacTests.m; sourceTree = "<group>"; };
+		339B192D196BE702000C26A7 /* CCBluetoothTransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBluetoothTransferManager.h; sourceTree = "<group>"; };
+		339B192E196BE702000C26A7 /* CCBluetoothTransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBluetoothTransferManager.m; sourceTree = "<group>"; };
+		339B1930196BE70F000C26A7 /* CCBluetoothTransferManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBluetoothTransferManagerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,9 @@
 				3336C013196957E900EFAC5F /* CCBluetoothManager.h */,
 				3336C014196957EA00EFAC5F /* CCBluetoothManager.m */,
 				3336C01F19695F5800EFAC5F /* CCBluetoothManagerDelegate.h */,
+				339B192D196BE702000C26A7 /* CCBluetoothTransferManager.h */,
+				339B192E196BE702000C26A7 /* CCBluetoothTransferManager.m */,
+				339B1930196BE70F000C26A7 /* CCBluetoothTransferManagerDelegate.h */,
 				3336C02019695FD400EFAC5F /* CCRemoteLibraryManager.h */,
 				3336C02119695FD400EFAC5F /* CCRemoteLibraryManager.m */,
 				3336C02319695FDF00EFAC5F /* CCRemoteLibManagerDelegate.h */,
@@ -296,6 +303,7 @@
 				3336C015196957EA00EFAC5F /* CCBluetoothManager.m in Sources */,
 				3336C01A19695A1200EFAC5F /* CCDebug.m in Sources */,
 				33566A0C1969553B00AEE02D /* CCAppDelegate.m in Sources */,
+				339B192F196BE702000C26A7 /* CCBluetoothTransferManager.m in Sources */,
 				33566A051969553B00AEE02D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,14 +7,18 @@
 //
 
 #import "CCBluetoothManager.h"
+#import "CCBluetoothTransferManager.h"
+#import "CCBluetoothTransferManagerDelegate.h"
 #import "CCUtil.h"
 #import "CCDebug.h"
 
 
 
-@interface CCBluetoothManager () <CBPeripheralManagerDelegate, CBPeripheralDelegate>
+@interface CCBluetoothManager () <CBPeripheralManagerDelegate, CBPeripheralDelegate, CCBluetoothTransferManagerDelegate>
 
 @property (readwrite, weak) id<CCAppState> appState;
+
+@property (readwrite, strong) CCBluetoothTransferManager *transferManager;
 
 /**
  *  The CBPeripheralManager instance used by this manager to make this device a BTLE Peripheral
@@ -93,6 +97,8 @@ double const URL_CHECK_TIMEOUT = 2.0;
     
     dispatch_queue_t peripheralQueue = dispatch_queue_create("connichiwaperipheralqueue", DISPATCH_QUEUE_SERIAL);
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:peripheralQueue];
+    self.transferManager = [[CCBluetoothTransferManager alloc] initWithPeripheralManager:self.peripheralManager];
+    [self.transferManager setDelegate:self];
     
     //When a central subscribes to the initial characteristic, we will sent it our initial device data, including our unique identifier
     self.advertisedInitialCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:BLUETOOTH_INITIAL_CHARACTERISTIC_UUID]
@@ -103,7 +109,7 @@ double const URL_CHECK_TIMEOUT = 2.0;
     //A central can subscribe to the IP characteristic when it wants to use our device as a remote device
     //The characteristic is writeable and allows the central to send us its
     self.advertisedIPCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:BLUETOOTH_IP_CHARACTERISTIC_UUID]
-                                                                         properties:CBCharacteristicPropertyWrite
+                                                                         properties:(CBCharacteristicPropertyWriteWithoutResponse | CBCharacteristicPropertyWrite)
                                                                               value:nil
                                                                         permissions:CBAttributePermissionsWriteable];
     
@@ -149,7 +155,7 @@ double const URL_CHECK_TIMEOUT = 2.0;
 
 - (void)_doStartAdvertising
 {
-    if ([self isAdvertising]) return;
+//    if ([self isAdvertising]) return;
     
     BTLog(1, @"Starting to advertise to other BT devices with identifier %@", self.appState.identifier);
     
@@ -157,24 +163,69 @@ double const URL_CHECK_TIMEOUT = 2.0;
 }
 
 
-- (void)_sendInitialToCentral:(CBCentral *)central
+- (void)_sendInitialDataToCentral:(CBCentral *)central
 {
-    BTLog(3, @"Preparing to send initial data to %@", central);
-    
     NSDictionary *sendDictionary = @{ @"identifier": self.appState.identifier, @"name": self.appState.deviceName };
     NSData *initialData = [NSJSONSerialization dataWithJSONObject:sendDictionary options:NSJSONWritingPrettyPrinted error:nil];
-//    initialData = [@"rofl" dataUsingEncoding:NSUTF8StringEncoding];
-//    BOOL didSend = [self.peripheralManager updateValue:initialData forCharacteristic:self.advertisedInitialCharacteristic onSubscribedCentrals:@[central]];
-    BOOL didSend = [self.peripheralManager updateValue:initialData forCharacteristic:self.advertisedInitialCharacteristic onSubscribedCentrals:nil];
+    [self.transferManager sendData:initialData toCentral:central withCharacteristic:self.advertisedInitialCharacteristic];
+}
+
+
+- (void)_receivedIPData:(NSData *)data forCentral:(CBCentral *)central lastWriteRequest:(CBATTRequest *)writeRequest
+{
+    NSDictionary *ipData = [CCUtil dictionaryFromJSONData:data];
+    BOOL containsValidIP = NO;
     
-    if (didSend == NO)
+    if (ipData[@"ips"] != nil)
     {
-        ErrLog(@"Unable to send initial data to %@", central);
+        //If we can't become a remote anyway, we reject any IPs we receive
+        //Otherwise we check every IP for validity and stop when we found a valid IP
+        if ([self.appState canBecomeRemote])
+        {
+            for (NSString *ip in ipData[@"ips"])
+            {
+                NSHTTPURLResponse *response = nil;
+                NSError *error = nil;
+                
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/check", ip]];
+                NSMutableURLRequest *httpRequest = [NSMutableURLRequest
+                                                    requestWithURL:url
+                                                    cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                    timeoutInterval:URL_CHECK_TIMEOUT];
+                [httpRequest setHTTPMethod:@"HEAD"];
+                
+                BTLog(3, @"Checking IP %@ for validity", url);
+                [NSURLConnection sendSynchronousRequest:httpRequest returningResponse:&response error:&error];
+                if ([response statusCode] == 200)
+                {
+                    //We found a working IP!
+                    BTLog(3, @"%@ is a valid URL", url);
+                    if ([self.delegate respondsToSelector:@selector(didReceiveDeviceURL:)])
+                    {
+                        [self.delegate didReceiveDeviceURL:[url URLByDeletingLastPathComponent]]; //remove /check
+                    }
+                    containsValidIP = YES;
+                    break;
+                }
+            }
+        }
     }
     else
     {
-        BTLog(3, @"Totally sent %@", sendDictionary);
+        ErrLog(@"'ips' key was missing from received IP data");
     }
+    
+    //We exploit the write request responses here to indicate if the IP(s) received worked or not
+    if (containsValidIP)    [self.peripheralManager respondToRequest:writeRequest withResult:CBATTErrorSuccess];
+    else                    [self.peripheralManager respondToRequest:writeRequest withResult:CBATTErrorAttributeNotFound];
+}
+
+
+#pragma mark CWBluetoothTransferManagerDelegate
+
+- (void)didReceiveMessage:(NSData *)data fromCentral:(CBCentral *)central withCharacteristic:(CBCharacteristic *)characteristic lastWriteRequest:(CBATTRequest *)request
+{
+    if ([characteristic.UUID isEqual:self.advertisedIPCharacteristic.UUID]) [self _receivedIPData:data forCentral:central lastWriteRequest:request];
 }
 
 
@@ -238,6 +289,19 @@ double const URL_CHECK_TIMEOUT = 2.0;
 
 
 /**
+ *  Called when sending data to a central via a notifyable characteristic failed because the transmission queue was full. The call to this method indicates that the characteristic can hold data again.
+ *
+ *  @param peripheral The CBPeripheralManager that triggered this message
+ */
+- (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral
+{
+    //We need to pass this call to the transfer manager so it knows it can continue to send data if necessary
+    [self.transferManager canContinueSendingToCentrals];
+}
+
+
+
+/**
  *  Called whenever we received a write request for a characteristic. This is called when a central sends us data via a writable characteristic. The sent data is stored in a request's value property. A call to this method can contain multiple write requests, but we should only send a single response. Responding will trigger the CBPeripheral's peripheral:didWriteValueForCharacteristic:error: method on the sending device.
  *
  *  @param peripheral The CBPeripheralManager that received the request
@@ -245,49 +309,10 @@ double const URL_CHECK_TIMEOUT = 2.0;
  */
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests
 {
-    BOOL requestsValid = NO;
     for (CBATTRequest *writeRequest in requests)
     {
-        BTLog(4, @"Did receive IP from another device: %@", [[NSString alloc] initWithData:writeRequest.value encoding:NSUTF8StringEncoding]);
-        
-        NSDictionary *retrievedData = [CCUtil dictionaryFromJSONData:writeRequest.value];
-        
-        if (retrievedData[@"ip"] == nil)
-        {
-            ErrLog(@"Error in the retrieved IP");
-            continue;
-        }
-        
-        //If we can't become a remote anyway, we reject any IPs we receive
-        if ([self.appState canBecomeRemote] == NO) continue;
-        
-        NSHTTPURLResponse *response = nil;
-        NSError *error = nil;
-        
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/check", retrievedData[@"ip"]]];
-        NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:url
-                                        cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                        timeoutInterval:URL_CHECK_TIMEOUT];
-        [request setHTTPMethod:@"HEAD"];
-        
-        BTLog(3, @"Checking IP %@ for validity", url);
-        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if ([response statusCode] == 200)
-        {
-            //We found the correct IP!
-            BTLog(3, @"%@ is a valid URL", url);
-            if ([self.delegate respondsToSelector:@selector(didReceiveDeviceURL:)])
-            {
-                [self.delegate didReceiveDeviceURL:[url URLByDeletingLastPathComponent]]; //remove /check
-            }
-            requestsValid = YES;
-        }
+        [self.transferManager receivedDataFromCentral:writeRequest];
     }
-    
-    //We exploit the write request responses here to indicate if the IP(s) received worked or not
-    if (requestsValid) [self.peripheralManager respondToRequest:[requests objectAtIndex:0] withResult:CBATTErrorSuccess];
-    else [self.peripheralManager respondToRequest:[requests objectAtIndex:0] withResult:CBATTErrorAttributeNotFound];
 }
 
 
@@ -303,7 +328,7 @@ double const URL_CHECK_TIMEOUT = 2.0;
     if (characteristic == self.advertisedInitialCharacteristic)
     {
         BTLog(3, @"Another device subscribed to our initial characteristic");
-        [self _sendInitialToCentral:central];
+        [self _sendInitialDataToCentral:central];
     }
 }
 

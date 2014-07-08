@@ -102,8 +102,11 @@
 
 - (void)connectToServer:(NSURL *)URL
 {
+    CWLog(1, @"TRYING 0, webview is nil: %d; isActive is %d", (self.webView == nil), [self isActive]);
     if (self.webView == nil) return;
     if ([self isActive]) return;
+    
+    CWLog(1, @"TRYING");
     
     if (self.state == CCRemoteLibraryManagerStateDisconnecting)
     {
