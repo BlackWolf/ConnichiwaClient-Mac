@@ -118,8 +118,11 @@
     
     self.state = CCRemoteLibraryManagerStateConnecting;
     
-    //URL is in the form http://IP:PORT - we need to make it http://IP:PORT/remote/index.html
-    NSURL *finalURL = [[URL URLByAppendingPathComponent:@"remote" isDirectory:YES] URLByAppendingPathComponent:@"index.html" isDirectory:NO];
+//    URL is in the form http://IP:PORT - we need to make it http://IP:PORT/remote/index.html
+//    NSURL *finalURL = [[URL URLByAppendingPathComponent:@"remote" isDirectory:YES] URLByAppendingPathComponent:@"index.html" isDirectory:NO];
+    
+    //URL is in the form http://IP:PORT - we need to make it http://IP:PORT/connichiwa/remote.html
+    NSURL *finalURL = [[URL URLByAppendingPathComponent:@"connichiwa" isDirectory:YES] URLByAppendingPathComponent:@"remote.html" isDirectory:NO];
     
     NSURLRequest *URLRequest = [NSURLRequest requestWithURL:finalURL];
     dispatch_async(dispatch_get_main_queue(), ^{

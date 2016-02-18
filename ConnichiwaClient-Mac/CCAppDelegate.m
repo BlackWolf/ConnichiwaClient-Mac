@@ -68,10 +68,24 @@
  */
 - (void)didReceiveDeviceURL:(NSURL *)URL;
 {
+    CWLog(1, @"DID RECEIVE %@", URL);
     if ([self canBecomeRemote] == NO) return;
     
     //This is it, the moment we have all been waiting for: Switching to remote state!
     [self.remoteLibManager connectToServer:URL];
+}
+
+- (NSDictionary *)deviceInfo {
+    return @{
+             @"identifier" : [self identifier],
+             @"appName"    : @"*",
+//             @"launchDate" : @([[self launchDate] timeIntervalSince1970]),
+//             @"ips"        : [CWUtil deviceInterfaceAddresses],
+//             @"port"       : @(self.webserverPort),
+             @"name"       : [self deviceName],
+//             @"ppi"        : @([self ppi]),
+//             @"supportsMC" : @YES
+             };
 }
 
 

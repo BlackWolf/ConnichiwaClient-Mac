@@ -15,7 +15,12 @@
  */
 @property (readonly) NSString *identifier;
 
+@property (readonly) NSString *appName;
+
 @property (readonly) NSString *deviceName;
+
+@property (readonly) NSDictionary *deviceInfo;
+
 
 /**
  *  Determines if this device is currently running as a remote device for another Connichiwa device.
